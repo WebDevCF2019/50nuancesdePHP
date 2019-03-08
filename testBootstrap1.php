@@ -14,7 +14,7 @@
     <link href="view/css/bootstrap.style-theme.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/business-frontpage.css" rel="stylesheet">
+    <link href="view/css/business-frontpage.css" rel="stylesheet">
 
 </head>
 
@@ -143,8 +143,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 
 </body>
 
