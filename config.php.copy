@@ -1,0 +1,12 @@
+<?php
+/**
+ * Copy of config.php,
+ * rename this with your parameters
+ */
+
+define("DB_HOST", "localhost"); // your URL mysql serveur
+define("DB_NAME", "nuancesdephp"); // db name
+define("DB_LOGIN", "root"); // user login
+define("DB_PWD", ""); // user pwd
+define("DB_PORT", 3306); // mysql port
+define("DB_CHARSET", "utf8"); // charset
