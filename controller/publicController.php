@@ -2,4 +2,4 @@
 /**
  * Public Controller
  */
-echo "test public";
+
