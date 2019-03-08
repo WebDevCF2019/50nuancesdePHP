@@ -5,6 +5,13 @@ $mysqli_data="SELECT * FROM article ";
 
 $sql_author= mysqli_query($mysqli,$mysqli_data) or die(mysqli_error($mysqli));
 
+if(mysqli_num_rows($sql_author)){
+    $item = mysqli_fetch_assoc($sql_author);
+}else{
+
+}
+?>
+
 ?>
 
 <!DOCTYPE html>
@@ -15,9 +22,9 @@ $sql_author= mysqli_query($mysqli,$mysqli_data) or die(mysqli_error($mysqli));
      </head>
 </body>
 
-<h1 class="author">Auteurs</h1>
-<p class="nom">Nom</p>
-<p class="bio">Bio</p>
+<h1 class="nom"><?=$idauthor['thename']?></h1>
+<p class="bio"><?=$idauthor['thebio']?></p>
+
 <p class="list">Liste de ses nouvelles </p>
 
 
