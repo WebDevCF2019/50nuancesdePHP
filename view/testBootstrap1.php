@@ -11,10 +11,10 @@
     <title>Business Frontpage - Start Bootstrap Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="view/css/bootstrap.style-theme.css" rel="stylesheet">
+    <link href="css/bootstrap.style-theme.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="view/css/business-frontpage.css" rel="stylesheet">
+    <link href="css/business-frontpage.css" rel="stylesheet">
 
 </head>
 
