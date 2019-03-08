@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+<?php
+/* Page par rubriques
+Liste d'articles ordonnés par date descendante présent dans la rubrique, sans les autres rubriques */
+// si la variable $idcateg existe alors
+if(isset($idcateg)) {
+    $idcateg = (int) $idcateg;
+    $recup = $mysqli->query("SELECT idcategorie, thetitle FROM categorie WHERE idcategorie=$idcateg");
+    $categ = $recup->fetch_assoc();
+
+}
+
+
+
+?><!DOCTYPE html>
 <html lang="">
 <head>
     <meta charset="utf-8">
@@ -17,25 +30,9 @@
     <![endif]-->
 </head>
 <body>
-<h1 class="text-center">Articles par catégories</h1>
-
-<?php
-/* Page par rubriques
-Liste d'articles ordonnés par date descendante présent dans la rubrique, sans les autres rubriques */
+<h1 class="text-center">Catégorie <?=$categ["thetitle"]?></h1>
 
 
-$idcateg = $db->query('SELECT idcategorie, thetitle FROM nuancesdephp ORDER BY id DESC ');
-
-// si la variable $idcateg existe alors
-if(isset($idcateg)) {
-    // tu affiches toute les categories
-    while ($data = $nav->fetch()) {
-        echo $data['thetitle'];
-    }
-    $nav->closeCursor();
-
-}
-?>
 
 <!-- jQuery -->
 <script src="//code.jquery.com/jquery.js"></script>
