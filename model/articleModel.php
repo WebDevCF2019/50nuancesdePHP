@@ -23,3 +23,14 @@ function detailArticle(int $id){
 
 }
 
+function insertArticle(array $values){
+
+}
+
+function updateArticle(int $id){
+
+}
+
+function deleteArticle(int $id){
+
+}
