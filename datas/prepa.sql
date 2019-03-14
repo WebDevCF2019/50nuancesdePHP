@@ -11,8 +11,6 @@ select thetitle from categorie where idcategorie=1;
 
 -- récupère tous les articles de cette catégorie
 
-select DISTINCT article.thetitle from article,categorie,categorie_has_article 
-where 
-categorie_has_article.categorie_idcategorie = 1 
-and 
-article.idarticle=categorie_has_article.article_idarticle;
+select DISTINCT article.thetitle,article.thetext,article.thedate 
+from article,categorie,categorie_has_article 
+where categorie_has_article.categorie_idcategorie = 3 and article.idarticle=categorie_has_article.article_idarticle;
