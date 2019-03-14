@@ -25,7 +25,7 @@ Accueil
 */
 }else{
     // from articleModel
-    $recup_accueil = listArticleAccueil();
+    $recup_accueil = listArticleAccueil($mysqli);
 
     // view
     require_once "view/accueilNews.html.php";
