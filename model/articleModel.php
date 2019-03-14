@@ -11,15 +11,15 @@ function listArticleAccueil(){
 
 }
 
-function listArticleCategorie(int $id){
+function listArticleCategorie(int $idCategorie){
 
 }
 
-function listArticleUser(int $id){
+function listArticleUser(int $idUser){
 
 }
 
-function detailArticle(int $id){
+function detailArticle(int $idArticle){
 
 }
 
@@ -27,10 +27,10 @@ function insertArticle(array $values){
 
 }
 
-function updateArticle(int $id){
+function updateArticle(int $idArticle){
 
 }
 
-function deleteArticle(int $id){
+function deleteArticle(int $idArticle){
 
 }
