@@ -7,30 +7,30 @@
  */
 
 
-function listArticleAccueil(){
+function listArticleAccueil(mysqli $db){
+    $datas = mysqli_query($db,"");
+}
+
+function listArticleCategorie(mysqli $db,int $idCategorie){
 
 }
 
-function listArticleCategorie(int $id){
+function listArticleUser(mysqli $db,int $idUser){
 
 }
 
-function listArticleUser(int $id){
+function detailArticle(mysqli $db,int $idArticle){
 
 }
 
-function detailArticle(int $id){
+function insertArticle(mysqli $db,array $values){
 
 }
 
-function insertArticle(array $values){
+function updateArticle(mysqli $db,int $idArticle){
 
 }
 
-function updateArticle(int $id){
-
-}
-
-function deleteArticle(int $id){
+function deleteArticle(mysqli $db,int $idArticle){
 
 }
