@@ -3,6 +3,7 @@
 // model
 require_once "model/articleModel.php";
 
+
 if(isset($_GET['idnouvelle']) && ctype_digit($_GET['idnouvelle'])) {
 
     $idnouvelle = (int)$_GET['idnouvelle'];
