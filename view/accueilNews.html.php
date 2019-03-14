@@ -11,7 +11,7 @@
     <title>accueilNews</title>
 </head>
 <body>
-    <h1>Test 2</h1>
+    <h1>Accueil</h1>
     <p><a href="#">Titre (cliquable -> détail art)</a></p>
     <p><a href="#">Rubriques de la nouvelle (cliquables -> rubriques)</a></p>
     <p>Texte coupé à 350 caractères (! attention à la césure du texte)</p>
