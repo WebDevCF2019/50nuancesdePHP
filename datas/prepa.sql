@@ -5,7 +5,12 @@ SELECT * FROM permission;
 SELECT * FROM user;
 
 <<<<<<< HEAD
-SELECT categorie.thetitle, article.thetitle, thedate, user.thename, left(thetext, 350) FROM article join categorie_has_article cha on article.idarticle= cha.article_idarticle join categorie on idcategorie= cha.categorie_idcategorie join user on user.iduser=article.user_iduser order by thedate desc;
+SELECT categorie.thetitle, article.thetitle, thedate, user.thename, left(thetext, 350) 
+FROM article 
+join categorie_has_article cha 
+on article.idarticle= cha.article_idarticle 
+join categorie on idcategorie= cha.categorie_idcategorie 
+join user on user.iduser=article.user_iduser order by thedate desc;
 
 =======
 SELECT a.idarticle, a.thetitle, left(a.thetext,350) AS thetext, a.thedate,
