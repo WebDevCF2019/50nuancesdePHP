@@ -77,7 +77,6 @@
         <div class="col-lg-8 col-md-10 mx-auto">
 
 
-<<<<<<< HEAD
 
                 <?php
 // pas encore d'articles, la variable contient false
@@ -88,26 +87,10 @@ if(!$recup_accueil){
 }else{
        foreach($recup_accueil as $item) {
 
-=======
-            <?php
-            // pas encore d'articles, la variable contient false
-            if (!$recup_accueil) {
->>>>>>> 7e1f46a22361c42cd4dd3c2e9537607c1d6b12cc
                 ?>
-                <h3 class="text-success">Pas encore de nouvelles</h3>
-                <?php
-            } else {
-
-<<<<<<< HEAD
-                    <p><a href="#">Rubriques de la nouvelle (cliquables -> rubriques)</a></p>
-                    <p>Texte coupé à 350 caractères (! attention à la césure du texte)</p>
-                    <p><a href="authorNews.html.php"><?=$item['thetitle'] ?></a></p>
-                    <p>Date</p>
-=======
-                foreach ($recup_accueil as $item) {
->>>>>>> 7e1f46a22361c42cd4dd3c2e9537607c1d6b12cc
-
-                    ?>
+             
+                
+            
                     <div class="post-preview">
                         <h2 class="post-title">
                             <?= $item['thetitle'] ?>
@@ -115,7 +98,7 @@ if(!$recup_accueil){
 
                         <p><a href="#">Rubriques de la nouvelle (cliquables -> rubriques)</a></p>
                         <p>Texte coupé à 350 caractères (! attention à la césure du texte)</p>
-                        <p><a href="#">Auteur (cliquable -> détail auteur)</a></p>
+                        <p><a href="authorNews.html.php"><?= $item['thetitle']?></a></p>
                         <p>Date</p>
 
 
@@ -124,7 +107,7 @@ if(!$recup_accueil){
                 }
 
             }
-        } 
+        
             ?>
         </div>
     </div>
