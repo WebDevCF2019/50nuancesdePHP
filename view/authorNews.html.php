@@ -1,8 +1,10 @@
-
-
-
 <?php
 //ici du php
+if(mysqli_num_rows($sql_author)){
+    $item = mysqli_fetch_assoc($sql_author);
+}else{
+    $error="pas d'auteurs";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +13,18 @@
     <title>Author</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+<!DOCTYPE html>
+<html>
+
+     <head>
+     <title>Author</title>
+     </head>
+
+<body>
+
+</body>
 
     <!-- Custom fonts for this template -->
     <meta charset="utf-8">
@@ -25,6 +39,7 @@
 </head>
 
 <body>
+
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">

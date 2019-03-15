@@ -2,7 +2,8 @@
 SELECT * FROM article;
 SELECT * FROM categorie;
 SELECT * FROM permission;
-SELECT * FROM user;
+SELECT * FROM user ;
+
 
 # accueil - home page
 
@@ -33,11 +34,17 @@ SELECT  u.thename,a.thetitle, a.thetext, a.thedate
 
 # articles par user - a finir
 
-SELECT u.thename, u.thebio, a.thetitle, a.thetext, a.thedate
+SELECT a.thetitle, a.thetext, a.thedate, u.thename, group_concat(c.thetitle separator'|||') as titlerub, 
+group_concat(c.idcategorie) as idcategorie  
 FROM article a
-JOIN user u
-ON u.iduser = a.user_iduser
-where u.iduser = 1;
+ JOIN categorie_has_article h 
+ ON h.article_idarticle = a.idarticle 
+ JOIN categorie c 
+ ON  c.idcategorie = h.categorie_idcategorie 
+ JOIN user u 
+ ON u.iduser=  a.user_iduser 
+ WHERE u.iduser = 1
+ GROUP BY a.idarticle;
 
 
 
