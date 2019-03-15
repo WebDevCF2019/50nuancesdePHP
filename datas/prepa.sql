@@ -56,7 +56,7 @@ SELECT  a.thetitle, a.thetext, a.thedate
 	FROM article a
 	INNER JOIN categorie_has_article h
         ON h.article_idarticle = a.idarticle
-   WHERE h.categorie_idcategorie = 3;
+   WHERE h.categorie_idcategorie = 3;git 
 <<<<<<< HEAD
 >>>>>>> 38bdbf6bd52629024f0c36afb0b6d70515e7549b
 =======
