@@ -1,11 +1,3 @@
-<?php
-//ici du php
-if(mysqli_num_rows($sql_author)){
-    $item = mysqli_fetch_assoc($sql_author);
-}else{
-    $error="pas d'auteurs";
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
