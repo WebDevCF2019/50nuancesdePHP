@@ -122,6 +122,7 @@ if(!$recup_accueil){
                     </div>
                     <?php
                 }
+
             }
         } 
             ?>
