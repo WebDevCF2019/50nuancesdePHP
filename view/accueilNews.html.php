@@ -76,33 +76,38 @@
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
 
+
+
                 <?php
 // pas encore d'articles, la variable contient false
 if(!$recup_accueil){
     ?>
     <h3 class="text-success">Pas encore de nouvelles</h3>
                 <?php
-}else {
-    foreach ($recup_accueil as $item) {
+}else{
+       foreach($recup_accueil as $item) {
+
+                ?>
+             
+                
+            
+                    <div class="post-preview">
+                        <h2 class="post-title">
+                            <?= $item['thetitle'] ?>
+                        </h2>
+
+                        <p><a href="#">Rubriques de la nouvelle (cliquables -> rubriques)</a></p>
+                        <p>Texte coupé à 350 caractères (! attention à la césure du texte)</p>
+                        <p><a href="authorNews.html.php"><?= $item['thetitle']?></a></p>
+                        <p>Date</p>
 
 
-        ?>
-        <div class="post-preview">
-            <h2 class="post-title">
-                Titre (cliquable -> détail art)
-            </h2>
+                    </div>
+                    <?php
+                }
 
-            <p><a href="#">Rubriques de la nouvelle (cliquables -> rubriques)</a></p>
-            <p>Texte coupé à 350 caractères (! attention à la césure du texte)</p>
-            <p><a href="authorNews.html.php"><?= $item['thetitle'] ?></a></p>
-            <p>Date</p>
-
-
-        </div>
-        <?php
-    }
-}
-
+            }
+        
             ?>
         </div>
     </div>

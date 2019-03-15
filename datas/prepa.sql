@@ -45,6 +45,3 @@ FROM article a
  ON u.iduser=  a.user_iduser 
  WHERE u.iduser = 1
  GROUP BY a.idarticle;
-
-
-
