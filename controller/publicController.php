@@ -24,7 +24,7 @@ Accueil
 
 */
 }else{
-    // from articleModel
+    // from articleModel => false, not yet article => true, an index' array with associative's array inside
     $recup_accueil = listArticleAccueil($mysqli);
 
     // view

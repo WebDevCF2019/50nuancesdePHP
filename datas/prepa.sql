@@ -17,17 +17,17 @@ join user on user.iduser=article.user_iduser order by thedate desc;
 >>>>>>> 8d9c6bca53c23412d5a862a06444ee7105db555d
 
 
+# accueil - home page
 SELECT a.idarticle, a.thetitle, left(a.thetext,350) AS thetext, a.thedate,
 		u.iduser, u.thelogin, u.thename,
         GROUP_CONCAT(c.idcategorie) AS  idcategorie, 
         GROUP_CONCAT(c.thetitle SEPARATOR '|||') as titlecateg
 	FROM article a 
-    INNER JOIN user u
-		ON u.iduser = a.user_iduser
-	INNER JOIN categorie_has_article h 
+	LEFT JOIN categorie_has_article h 
 		ON h.article_idarticle = a.idarticle
-	INNER JOIN categorie c 
+	LEFT JOIN categorie c 
 		ON h.categorie_idcategorie = c.idcategorie
+<<<<<<< HEAD
 <<<<<<< HEAD
     ORDER BY a.thedate DESC;
 
@@ -35,3 +35,11 @@ SELECT a.idarticle, a.thetitle, left(a.thetext,350) AS thetext, a.thedate,
     GROUP BY a.idarticle    
     ORDER BY a.thedate DESC;
 >>>>>>> 4677dedd76e3a12fc4e4095f70d89763e2cff306
+=======
+    INNER JOIN user u
+		ON u.iduser = a.user_iduser    
+    GROUP BY a.idarticle    
+    ORDER BY a.thedate DESC;
+    
+    
+>>>>>>> 4d9e79ab93c81bbdf8d5c0a08660f193f09c6434
