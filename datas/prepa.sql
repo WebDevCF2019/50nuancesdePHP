@@ -4,22 +4,23 @@ SELECT * FROM categorie;
 SELECT * FROM permission;
 SELECT * FROM user;
 
-
--- récupèrer la categorie en fonction de l'id
-
-select thetitle from categorie where idcategorie=1;
-
--- récupère tous les articles de cette catégorie
-
--- version join
-SELECT DISTINCT article.thetitle,article.thetext,article.thedate 
-FROM article
-JOIN categorie
-JOIN categorie_has_article 
-ON categorie_has_article.categorie_idcategorie = 3 
-AND article.idarticle=categorie_has_article.article_idarticle;
-
--- version where
-select DISTINCT article.thetitle,article.thetext,article.thedate 
-from article,categorie,categorie_has_article 
-where categorie_has_article.categorie_idcategorie = 3 and article.idarticle=categorie_has_article.article_idarticle;
+# accueil - home page
+SELECT a.idarticle, a.thetitle, left(a.thetext,350) AS thetext, a.thedate,
+		u.iduser, u.thelogin, u.thename,
+        GROUP_CONCAT(c.idcategorie) AS  idcategorie, 
+        GROUP_CONCAT(c.thetitle SEPARATOR '|||') as titlecateg
+	FROM article a 
+	LEFT JOIN categorie_has_article h 
+		ON h.article_idarticle = a.idarticle
+	LEFT JOIN categorie c 
+		ON h.categorie_idcategorie = c.idcategorie
+    INNER JOIN user u
+		ON u.iduser = a.user_iduser    
+    GROUP BY a.idarticle    
+    ORDER BY a.thedate DESC;
+    
+SELECT  a.thetitle, a.thetext, a.thedate 
+	FROM article a
+	INNER JOIN categorie_has_article h
+        ON h.article_idarticle = a.idarticle
+   WHERE h.categorie_idcategorie = 3;
