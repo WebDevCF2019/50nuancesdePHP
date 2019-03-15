@@ -40,5 +40,13 @@ SELECT a.idarticle, a.thetitle, left(a.thetext,350) AS thetext, a.thedate,
     GROUP BY a.idarticle    
     ORDER BY a.thedate DESC;
     
+<<<<<<< HEAD
     
 
+=======
+SELECT  a.thetitle, a.thetext, a.thedate 
+	FROM article a
+	INNER JOIN categorie_has_article h
+        ON h.article_idarticle = a.idarticle
+   WHERE h.categorie_idcategorie = 3;
+>>>>>>> 38bdbf6bd52629024f0c36afb0b6d70515e7549b
