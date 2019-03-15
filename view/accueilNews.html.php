@@ -75,12 +75,20 @@
         <div class="col-lg-8 col-md-10 mx-auto">
 
 
+
+                <?php
+// pas encore d'articles, la variable contient false
+if(!$recup_accueil){
+    ?>
+    <h3 class="text-success">Pas encore de nouvelles</h3>
+                <?php
+}else{
+                ?>
             <div class="post-preview">
-                <a href="post.html">
                     <h2 class="post-title">
                         Titre (cliquable -> détail art)
                     </h2>
-                </a>
+
                     <p><a href="#">Rubriques de la nouvelle (cliquables -> rubriques)</a></p>
                     <p>Texte coupé à 350 caractères (! attention à la césure du texte)</p>
                     <p><a href="#">Auteur (cliquable -> détail auteur)</a></p>
@@ -88,7 +96,9 @@
 
 
             </div>
-
+            <?php
+            }
+            ?>
         </div>
     </div>
 </div>

@@ -24,8 +24,8 @@ Accueil
 
 */
 }else{
-    // from articleModel
-    $recup_accueil = listArticleAccueil($mysqli,"SELECT ");
+    // from articleModel => false, not yet article => true, an index' array with associative's array inside
+    $recup_accueil = listArticleAccueil($mysqli);
 
     // view
     require_once "view/accueilNews.html.php";
