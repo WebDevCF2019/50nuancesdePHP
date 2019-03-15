@@ -1,16 +1,10 @@
-
-
-<<<<<<< HEAD
+<?php
+//ici du php
 if(mysqli_num_rows($sql_author)){
     $item = mysqli_fetch_assoc($sql_author);
 }else{
     $error="pas d'auteurs";
 }
-=======
-
-<?php
-//ici du php
->>>>>>> 0633ea65ae3093440c2106ebb603f0d6d7b0ed84
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +14,7 @@ if(mysqli_num_rows($sql_author)){
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<<<<<<< HEAD
+
 <!DOCTYPE html>
 <html>
 
@@ -31,7 +25,7 @@ if(mysqli_num_rows($sql_author)){
 <body>
 
 </body>
-=======
+
     <!-- Custom fonts for this template -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,7 +39,7 @@ if(mysqli_num_rows($sql_author)){
 </head>
 
 <body>
->>>>>>> 0633ea65ae3093440c2106ebb603f0d6d7b0ed84
+
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
