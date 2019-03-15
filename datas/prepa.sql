@@ -20,6 +20,7 @@ SELECT a.idarticle, a.thetitle, left(a.thetext,350) AS thetext, a.thedate,
     GROUP BY a.idarticle    
     ORDER BY a.thedate DESC;
 
+
 # articles par catégorie - a finir
 
 SELECT  a.thetitle, a.thetext, a.thedate 
@@ -35,3 +36,4 @@ FROM article a
 JOIN user u
 ON u.iduser = a.user_iduser
 where u.iduser = 1;
+
