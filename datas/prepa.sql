@@ -18,6 +18,7 @@ join user on user.iduser=article.user_iduser order by thedate desc;
 
 
 # accueil - home page
+
 SELECT a.idarticle, a.thetitle, left(a.thetext,350) AS thetext, a.thedate,
 		u.iduser, u.thelogin, u.thename,
         GROUP_CONCAT(c.idcategorie) AS  idcategorie, 
@@ -39,14 +40,33 @@ SELECT a.idarticle, a.thetitle, left(a.thetext,350) AS thetext, a.thedate,
 		ON u.iduser = a.user_iduser    
     GROUP BY a.idarticle    
     ORDER BY a.thedate DESC;
+<<<<<<< HEAD
     
 <<<<<<< HEAD
     
 
 =======
+=======
+
+
+# articles par catégorie - a finir
+
+>>>>>>> 7e1f46a22361c42cd4dd3c2e9537607c1d6b12cc
 SELECT  a.thetitle, a.thetext, a.thedate 
 	FROM article a
 	INNER JOIN categorie_has_article h
         ON h.article_idarticle = a.idarticle
    WHERE h.categorie_idcategorie = 3;
+<<<<<<< HEAD
 >>>>>>> 38bdbf6bd52629024f0c36afb0b6d70515e7549b
+=======
+
+# articles par user - a finir
+
+SELECT u.thename, u.thebio, a.thetitle, a.thetext, a.thedate
+FROM article a
+JOIN user u
+ON u.iduser = a.user_iduser
+where u.iduser = 1;
+
+>>>>>>> 7e1f46a22361c42cd4dd3c2e9537607c1d6b12cc
