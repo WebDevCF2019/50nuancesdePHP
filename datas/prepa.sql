@@ -23,13 +23,13 @@ SELECT a.idarticle, a.thetitle, left(a.thetext,350) AS thetext, a.thedate,
 
 # articles par catégorie fini
 
-SELECT  u.thename,a.thetitle, a.thetext, a.thedate 
+SELECT  u.iduser,u.thename,a.thetitle, a.thetext, a.thedate 
 	FROM article a
 	INNER JOIN categorie_has_article h
         ON h.article_idarticle = a.idarticle
 	INNER JOIN user u 
 		on u.iduser = a.user_iduser
-   WHERE h.categorie_idcategorie = 3;
+   WHERE h.categorie_idcategorie = 1;
 
 # articles par user - a finir
 
