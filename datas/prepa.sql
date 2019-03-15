@@ -5,6 +5,7 @@ SELECT * FROM permission;
 SELECT * FROM user;
 
 # accueil - home page
+
 SELECT a.idarticle, a.thetitle, left(a.thetext,350) AS thetext, a.thedate,
 		u.iduser, u.thelogin, u.thename,
         GROUP_CONCAT(c.idcategorie) AS  idcategorie, 
@@ -18,5 +19,19 @@ SELECT a.idarticle, a.thetitle, left(a.thetext,350) AS thetext, a.thedate,
 		ON u.iduser = a.user_iduser    
     GROUP BY a.idarticle    
     ORDER BY a.thedate DESC;
-    
-    
+
+# articles par catégorie - a finir
+
+SELECT  a.thetitle, a.thetext, a.thedate 
+	FROM article a
+	INNER JOIN categorie_has_article h
+        ON h.article_idarticle = a.idarticle
+   WHERE h.categorie_idcategorie = 3;
+
+# articles par user - a finir
+
+SELECT u.thename, u.thebio, a.thetitle, a.thetext, a.thedate
+FROM article a
+JOIN user u
+ON u.iduser = a.user_iduser
+where u.iduser = 1;

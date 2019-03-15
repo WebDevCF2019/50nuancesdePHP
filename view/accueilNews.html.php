@@ -31,7 +31,9 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
         <a class="navbar-brand" href="index.html">50nuancesPHP</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
         </button>
@@ -75,28 +77,31 @@
         <div class="col-lg-8 col-md-10 mx-auto">
 
 
-
-                <?php
-// pas encore d'articles, la variable contient false
-if(!$recup_accueil){
-    ?>
-    <h3 class="text-success">Pas encore de nouvelles</h3>
-                <?php
-}else{
-                ?>
-            <div class="post-preview">
-                    <h2 class="post-title">
-                        Titre (cliquable -> détail art)
-                    </h2>
-
-                    <p><a href="#">Rubriques de la nouvelle (cliquables -> rubriques)</a></p>
-                    <p>Texte coupé à 350 caractères (! attention à la césure du texte)</p>
-                    <p><a href="#">Auteur (cliquable -> détail auteur)</a></p>
-                    <p>Date</p>
-
-
-            </div>
             <?php
+            // pas encore d'articles, la variable contient false
+            if (!$recup_accueil) {
+                ?>
+                <h3 class="text-success">Pas encore de nouvelles</h3>
+                <?php
+            } else {
+
+                foreach ($recup_accueil as $item) {
+
+                    ?>
+                    <div class="post-preview">
+                        <h2 class="post-title">
+                            <?= $item['thetitle'] ?>
+                        </h2>
+
+                        <p><a href="#">Rubriques de la nouvelle (cliquables -> rubriques)</a></p>
+                        <p>Texte coupé à 350 caractères (! attention à la césure du texte)</p>
+                        <p><a href="#">Auteur (cliquable -> détail auteur)</a></p>
+                        <p>Date</p>
+
+
+                    </div>
+                    <?php
+                }
             }
             ?>
         </div>
