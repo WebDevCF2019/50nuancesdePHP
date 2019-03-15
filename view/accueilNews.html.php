@@ -47,7 +47,7 @@
                     <a class="nav-link" href="post.html">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">connexion</a>
+                    <a class="nav-link" href="contact.html">Connexion</a>
                 </li>
             </ul>
         </div>
@@ -82,17 +82,17 @@ if(!$recup_accueil){
     ?>
     <h3 class="text-success">Pas encore de nouvelles</h3>
                 <?php
-}else{
+}else{  
                 ?>
             <div class="post-preview">
                     <h2 class="post-title">
                         Titre (cliquable -> détail art)
                     </h2>
 
-                    <p><a href="#">Rubriques de la nouvelle (cliquables -> rubriques)</a></p>
+                    <p><a href="rubNews.html.php">Rubriques de la nouvelle (cliquables -> rubriques)</a><?=$idcateg?></p>
                     <p>Texte coupé à 350 caractères (! attention à la césure du texte)</p>
-                    <p><a href="#">Auteur (cliquable -> détail auteur)</a></p>
-                    <p>Date</p>
+                    <p><a href="authorNews.html.php">Auteur (cliquable -> détail auteur)</a><?=$idauthor?></p>
+                    <p>Date<?= $item['thedate'] ?></p>
 
 
             </div>
