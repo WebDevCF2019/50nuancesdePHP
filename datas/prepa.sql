@@ -21,7 +21,9 @@ SELECT a.idarticle, a.thetitle, left(a.thetext,350) AS thetext, a.thedate,
     GROUP BY a.idarticle    
     ORDER BY a.thedate DESC;
 
+
 # articles par catégorie - a finir
+
 SELECT  a.thetitle, a.thetext, a.thedate 
 	FROM article a
 	INNER JOIN categorie_has_article h
@@ -29,11 +31,6 @@ SELECT  a.thetitle, a.thetext, a.thedate
    WHERE h.categorie_idcategorie = 3;
 
 # articles par user - a finir
-SELECT u.thename, u.thebio, a.thetitle, a.thetext, a.thedate
-FROM article a
-JOIN user u
-ON u.iduser = a.user_iduser
-where u.iduser = 1;
 
 SELECT a.thetitle, a.thetext, a.thedate, u.thename, group_concat(c.thetitle separator'|||') as titlerub, 
 group_concat(c.idcategorie) as idcategorie  
@@ -46,3 +43,4 @@ FROM article a
  ON u.iduser=  a.user_iduser 
  WHERE u.iduser = 1
  GROUP BY a.idarticle;
+
