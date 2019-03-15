@@ -35,3 +35,14 @@ JOIN user u
 ON u.iduser = a.user_iduser
 where u.iduser = 1;
 
+SELECT a.thetitle, a.thetext, a.thedate, u.thename, group_concat(c.thetitle separator'|||') as titlerub, 
+group_concat(c.idcategorie) as idcategorie  
+FROM article a
+ JOIN categorie_has_article h 
+ ON h.article_idarticle = a.idarticle 
+ JOIN categorie c 
+ ON  c.idcategorie = h.categorie_idcategorie 
+ JOIN user u 
+ ON u.iduser=  a.user_iduser 
+ WHERE u.iduser = 1
+ GROUP BY a.idarticle;
