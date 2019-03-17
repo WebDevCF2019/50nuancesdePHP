@@ -78,7 +78,7 @@
                             foreach ($categories as $category) {
                                 $html = htmlspecialchars($category);
                                 $selected = "";
-                                //bouton en selected par defaut sur celuiselectionné
+                                //bouton en selected par defaut sur celuiselectionné&
                                 if ($category == $_POST['nav-rubrique']) {
                                     $selected = "selected";
                                 }
