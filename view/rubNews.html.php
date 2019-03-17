@@ -72,12 +72,13 @@
                     <form class="col-lg-6" action="rubNews.html.php" method="POST"><!-- start form -->
                         <select name="nav-rubrique" size="1"><!-- start select -->
                             <?php
+                            //Création d'un tableau
                             $categories = Array("default", "action", "aventure","bdsm","biographique","drame","fantastique","historique","romance","thriller");
-                            $preselected_category = "drame";
 
                             foreach ($categories as $category) {
                                 $html = htmlspecialchars($category);
                                 $selected = "";
+                                //bouton en selected par defaut sur celuiselectionné
                                 if ($category == $_POST['nav-rubrique']) {
                                     $selected = "selected";
                                 }
