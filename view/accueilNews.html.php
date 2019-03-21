@@ -82,17 +82,18 @@ if(!$recup_accueil){
     ?>
     <h3 class="text-success">Pas encore de nouvelles</h3>
                 <?php
-}else{  
+}else{foreach ($recup_accueil as $item)
                 ?>
             <div class="post-preview">
                     <h2 class="post-title">
                         Titre (cliquable -> détail art)
                     </h2>
 
-                    <p><a href="rubNews.html.php">Rubriques de la nouvelle (cliquables -> rubriques)</a><?=$idcateg?></p>
+                    <p><a href="rubNews.html.php">Rubriques de la nouvelle (cliquables -> rubriques)</a></p>
                     <p>Texte coupé à 350 caractères (! attention à la césure du texte)</p>
-                    <p><a href="authorNews.html.php">Auteur (cliquable -> détail auteur)</a><?=$idauthor?></p>
-                    <p>Date<?= $item['thedate'] ?></p>
+    <p><a href="authorNews.html.php"><?=$item['thetitle']?></a></p>
+        <? $thedate = date("d/m/Y");?>
+        <p>Date : <?=$item['thedate']?> </p>
 
 
             </div>
