@@ -195,4 +195,136 @@ SELECT a.thetitle, u.thename,
 		ON u.permission_idpermission = p.idpermission
 		
 	GROUP BY a.idarticle
-    ;         
+    ; 
+    
+ /*
+On veut garder les articles qui ont la syllabe "le" dans leur titre ou leur texte
+*/
+SELECT a.thetitle, u.thename, 
+	   p.thename AS qualite, 
+       GROUP_CONCAT(c.idcategorie ORDER BY c.thetitle ASC ) AS categorieId,
+       GROUP_CONCAT(c.thetitle ORDER BY c.thetitle ASC SEPARATOR'-|-|-' ) AS categorieName 
+	FROM article a
+    
+    LEFT JOIN categorie_has_article h 
+		ON h.article_idarticle = a.idarticle
+    LEFT JOIN categorie c 
+		ON h.categorie_idcategorie = c.idcategorie
+    
+	INNER JOIN user u 
+		ON a.user_iduser = u.iduser
+    INNER JOIN permission p
+		ON u.permission_idpermission = p.idpermission
+        
+	WHERE a.thetitle LIKE '%le%' OR a.thetext LIKE '%le%'
+	
+	GROUP BY a.idarticle
+    ;   
+    
+ /*
+On veut également obtenir 350 caractères du texte de chaque article, on peut
+utiliser left(nomDeChamps,350) ou substr(a.thetext,1,350) ou substring etc...
+*/
+SELECT a.thetitle, substr(a.thetext,3,350) AS thetext,
+	   u.thename, 
+	   p.thename AS qualite, 
+       GROUP_CONCAT(c.idcategorie ORDER BY c.thetitle ASC ) AS categorieId,
+       GROUP_CONCAT(c.thetitle ORDER BY c.thetitle ASC SEPARATOR'-|-|-' ) AS categorieName 
+	FROM article a
+    
+    LEFT JOIN categorie_has_article h 
+		ON h.article_idarticle = a.idarticle
+    LEFT JOIN categorie c 
+		ON h.categorie_idcategorie = c.idcategorie
+    
+	INNER JOIN user u 
+		ON a.user_iduser = u.iduser
+    INNER JOIN permission p
+		ON u.permission_idpermission = p.idpermission
+        
+	WHERE a.thetitle LIKE '%le%' OR a.thetext LIKE '%le%'
+	
+	GROUP BY a.idarticle
+    ; 
+    
+/*
+On veut également récupérer l'id de l'article et l'id de son auteur
+*/
+SELECT a.idarticle, a.thetitle, substr(a.thetext,3,350) AS thetext,
+	   u.iduser, u.thename, 
+	   p.thename AS qualite, 
+       GROUP_CONCAT(c.idcategorie ORDER BY c.thetitle ASC ) AS categorieId,
+       GROUP_CONCAT(c.thetitle ORDER BY c.thetitle ASC SEPARATOR'-|-|-' ) AS categorieName 
+	FROM article a
+    
+    LEFT JOIN categorie_has_article h 
+		ON h.article_idarticle = a.idarticle
+    LEFT JOIN categorie c 
+		ON h.categorie_idcategorie = c.idcategorie
+    
+	INNER JOIN user u 
+		ON a.user_iduser = u.iduser
+    INNER JOIN permission p
+		ON u.permission_idpermission = p.idpermission
+        
+	WHERE a.thetitle LIKE '%le%' OR a.thetext LIKE '%le%'
+	
+	GROUP BY a.idarticle
+    ;    
+    
+/*
+On veut également récupérer les images des utilisateurs, mais on garde les articles
+actuels, même si les auteurs n'ont pas d'image
+*/
+SELECT a.idarticle, a.thetitle, substr(a.thetext,1,350) AS thetext,
+	   u.iduser, u.thename, 
+       i.theurl,
+	   p.thename AS qualite, 
+       GROUP_CONCAT(c.idcategorie ORDER BY c.thetitle ASC ) AS categorieId,
+       GROUP_CONCAT(c.thetitle ORDER BY c.thetitle ASC SEPARATOR'-|-|-' ) AS categorieName 
+	FROM article a
+    
+    LEFT JOIN categorie_has_article h 
+		ON h.article_idarticle = a.idarticle
+    LEFT JOIN categorie c 
+		ON h.categorie_idcategorie = c.idcategorie
+    
+	INNER JOIN user u 
+		ON a.user_iduser = u.iduser
+    INNER JOIN permission p
+		ON u.permission_idpermission = p.idpermission
+    LEFT JOIN images i    
+		ON i.user_iduser = u.iduser
+        
+	WHERE a.thetitle LIKE '%le%' OR a.thetext LIKE '%le%'
+	
+	GROUP BY a.idarticle
+    ;   
+
+/*
+On veut séléctioner le 'thelogin' de tous les 'user', en sélectionnant
+aussi 'theurl' de la table 'images' si il y en a une, en sélectionnant
+aussi 'thename' de la table 'permission'.
+*/
+SELECT u.thelogin, i.theurl, p.thename 
+FROM user u 
+JOIN images i ON u.iduser = i.user_iduser 
+JOIN permission p ON u.permission_idpermission = p.idpermission
+
+
+/*
+On veut séléctioner le 'thelogin' de tous les 'user', en sélectionnant
+aussi 'theurl' de la table 'images' si il y en a une, en sélectionnant
+aussi 'thename' de la table 'permission'.
+
+
+
+On va rajouter le champs 'idarticle' et 'thetitle' pour chaque auteur, 
+en gardant une ligne par 'user', on garde l''user' même si il n'a pas d'article
+*/
+
+SELECT GROUP_CONCAT(u.thelogin), i.theurl, p.thename 
+FROM user u 
+JOIN images i ON u.iduser = i.user_iduser 
+JOIN permission p ON u.permission_idpermission = p.idpermission
+    
