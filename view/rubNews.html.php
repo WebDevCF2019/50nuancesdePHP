@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>ici votre titre</title>
@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
 
     <!-- Custom styles for this template -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
@@ -69,38 +68,93 @@
                 <div class="fil_ariane row">
                     <!-- changer par function php -->
                     <h4>Afficher les rubriques par:</h4>
-                    <form class="col-lg-6" action="#" method="POST"><!-- start form -->
+                    <form class="col-lg-6" action="rubNews.html.php" method="POST"><!-- start form -->
                         <select name="nav-rubrique" size="1"><!-- start select -->
-                            <option value="action">Action</option>
-                            <option value="aventure">Aventure</option>
-                            <option value="bdsm">BDSM</option>
-                            <option value="biographique">Biographique</option>
-                            <option value="drame">Drame</option>
-                            <option value="fantastique">Fantastique</option>
-                            <option value="historique">Historique</option>
-                            <option value="romance">Romance</option>
-                            <option value="thriller">Thriller</option>
-                        </select> <!-- end select -->
-                    </form><!-- end form -->
-                </div>
+                            <?php
+                            //Création d'un tableau contenant les noms de catégories
+                            $categories = Array("default", "action", "aventure","bdsm","biographique","drame","fantastique","historique","romance","thriller");
 
+                            foreach ($categories as $category) {
+                                $html = htmlspecialchars($category);
+                                $selected = "";
+                                //bouton en selected par defaut sur celuiselectionné
+                                if ($category == $_POST['nav-rubrique']) {
+                                    $selected = "selected";
+                                }
+                                ?> <option value="<?=$html?>" <?=$selected?>> <?=$html?> </option> <?php
+                            }
+                            ?>
+                        </select> <!-- end select -->
+                        <button type="submit" onclick="btnFix()">Chercher</button>
+                    </form><!-- end form -->
+                    <?php afficheArticle();?>
+
+                    <?php
+                    function afficheArticle(){
+                        if (isset($_POST['nav-rubrique'])) {
+                            $rubrique = $_POST['nav-rubrique'];
+                            if ($rubrique == 'default') {
+                                echo "Affichage des articles par default";
+                            }
+                            elseif ($rubrique == 'action') {
+                                echo "Affichage des articles par Action";
+                            }
+                            elseif ($rubrique == 'aventure') {
+                                echo "Affichage des articles par aventure";
+                            }
+                            elseif ($rubrique == 'bdsm') {
+                                echo "Affichage des articles par bdsm";
+                            }
+                            elseif ($rubrique == 'biographique') {
+                                echo "Affichage des articles par drame";
+                            }
+                            elseif ($rubrique == 'drame') {
+                                echo "Affichage des articles par drame";
+                            }
+                            elseif ($rubrique == 'fantastique') {
+                                echo "Affichage des articles par fantastique";
+                            }
+                            elseif ($rubrique == 'historique') {
+                                echo "Affichage des articles par historique";
+                            }
+                            elseif ($rubrique == 'romance') {
+                                echo "Affichage des articles par romance";
+                            }
+                            elseif ($rubrique == 'thriller') {
+                                echo "Affichage des articles par thriller";
+                            }
+                            }//end if
+                            else{
+                                echo "Affichage des articles par default";
+                            }
+                        }//end function AfficheArticle
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <hr>
+        <hr>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <ul class="list-inline text-center">
-                        <li class="list-inline-item">
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                      <i class="fas fa-circle fa-stack-2x"></i>
+                                      <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                  </span>
+                              </a>
+                          </li>
+                          <li class="list-inline-item">
                             <a href="#">
                                 <span class="fa-stack fa-lg">
                                   <i class="fas fa-circle fa-stack-2x"></i>
-                                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
                               </span>
                           </a>
                       </li>
@@ -108,27 +162,17 @@
                         <a href="#">
                             <span class="fa-stack fa-lg">
                               <i class="fas fa-circle fa-stack-2x"></i>
-                              <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
                           </span>
                       </a>
                   </li>
-                  <li class="list-inline-item">
-                    <a href="#">
-                        <span class="fa-stack fa-lg">
-                          <i class="fas fa-circle fa-stack-2x"></i>
-                          <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                      </span>
-                  </a>
-              </li>
-          </ul>
-          <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
+              </ul>
+              <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
+          </div>
       </div>
   </div>
-</div>
 </footer>
-
-
 <script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script> 
 </body>
 </html>
