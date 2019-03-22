@@ -92,7 +92,6 @@ if(!$recup_accueil){
                     <p><a href="rubNews.html.php">Rubriques de la nouvelle (cliquables -> rubriques)</a></p>
                     <p>Texte coupé à 350 caractères (! attention à la césure du texte)</p>
     <p><a href="authorNews.html.php"><?=$item['thetitle']?></a></p>
-        <? $thedate = date("d/m/Y");?>
         <p>Date : <?=$item['thedate']?> </p>
 
 
