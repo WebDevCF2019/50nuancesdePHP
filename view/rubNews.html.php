@@ -72,7 +72,7 @@
                     <form class="col-lg-6" action="rubNews.html.php" method="POST"><!-- start form -->
                         <select name="nav-rubrique" size="1"><!-- start select -->
                             <?php
-                            //Création d'un tableau
+                            //Création d'un tableau contenant les noms de catégories
                             $categories = Array("default", "action", "aventure","bdsm","biographique","drame","fantastique","historique","romance","thriller");
 
                             foreach ($categories as $category) {
@@ -131,7 +131,6 @@
                         }//end function AfficheArticle
                         ?>
                     </div>
-
                 </div>
             </div>
         </div>
