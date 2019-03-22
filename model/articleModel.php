@@ -35,7 +35,7 @@ function listArticleAccueil(mysqli $db){
 
 function listArticleCategorie(mysqli $db,int $idCategorie){
 
-}
+    }
 
 function listArticleUser(mysqli $db,int $idUser){
 
