@@ -3,11 +3,13 @@ SELECT * FROM article;
 SELECT * FROM categorie;
 SELECT * FROM permission;
 SELECT * FROM user;
+SELECT * FROM user WHERE iduser=2;
 SELECT * FROM images;
 /* table de jointure many2many */
 SELECT * FROM categorie_has_article;
 
-/* one to one en partant de user, normalement un user 
+/* 
+one to one en partant de user, normalement un user 
 doit avoir une image unique
 Jointure interne : INNER JOIN
   */
@@ -306,7 +308,12 @@ On veut séléctioner le 'thelogin' de tous les 'user', en sélectionnant
 aussi 'theurl' de la table 'images' si il y en a une, en sélectionnant
 aussi 'thename' de la table 'permission'.
 */
-
+SELECT u.thelogin, i.theurl, p.thename
+	FROM user u 
+    LEFT JOIN images i 
+		ON u.iduser = i.user_iduser
+    INNER JOIN permission p 
+		ON p.idpermission = u.permission_idpermission;
 
 
 /*
@@ -318,4 +325,38 @@ On va rajouter le champs 'idarticle' et 'thetitle' pour chaque auteur,
 en gardant une ligne par 'user', on garde l''user' même si il n'a pas d'article
 
 */
+SELECT u.thelogin, i.theurl, p.thename,
+	GROUP_CONCAT(a.idarticle) AS idarticle, GROUP_CONCAT(a.thetitle SEPARATOR'|||') AS thetitle
+	FROM user u 
+    LEFT JOIN images i 
+		ON u.iduser = i.user_iduser
+    INNER JOIN permission p 
+		ON p.idpermission = u.permission_idpermission
+    LEFT JOIN article a 
+		ON a.user_iduser = u.iduser
+    GROUP BY u.iduser    
+        ;
+/*
+Jointure affichant toutes les catégories, avec toutes les tables
+*/
+SELECT categorie.idcategorie,categorie.thetitle, 
+	   GROUP_CONCAT(article.idarticle) AS idarticle, 
+       GROUP_CONCAT(article.thetitle SEPARATOR '|||') AS articleTitle,
+       GROUP_CONCAT(user.iduser) AS iduser, GROUP_CONCAT(user.thelogin SEPARATOR'|||') AS thelogin,
+       GROUP_CONCAT(permission.idpermission) AS idpermission, GROUP_CONCAT(permission.thename SEPARATOR'|||') AS thenamePerm,
+       GROUP_CONCAT(images.theurl SEPARATOR'|||') AS theurl
+       
+FROM categorie
+	LEFT JOIN categorie_has_article
+		ON categorie.idcategorie = categorie_has_article.categorie_idcategorie
+    LEFT JOIN article
+		ON article.idarticle = categorie_has_article.article_idarticle
+    LEFT JOIN user    
+		ON user.iduser = article.user_iduser
+    LEFT JOIN permission
+		ON user.permission_idpermission = permission.idpermission
+    LEFT JOIN images
+		ON user.iduser = images.user_iduser
+GROUP BY categorie.idcategorie        
+    ;
     
