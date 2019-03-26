@@ -19,7 +19,7 @@ function listArticleAccueil(mysqli $db){
 	LEFT JOIN categorie c 
 		ON h.categorie_idcategorie = c.idcategorie
     INNER JOIN user u
-		ON u.iduser = a.user_iduser   
+		ON u.iduser = a.user_iduser 
     GROUP BY a.idarticle    
     ORDER BY a.thedate DESC;");
 

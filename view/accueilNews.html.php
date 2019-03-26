@@ -89,21 +89,30 @@
                     ?>
                     <div class="post-preview">
                         <h2 class="post-title">
-                            <?=$item['thetitle']?>
+                            <a href="?idnouvelle=<?=$item['idarticle']?>"><?= $item['thetitle'] ?></a>
                         </h2>
-                        <?php
-                        $idcateg = explode(",",$item['idcategorie']);
-                        $titlecateg = explode("|||",$item['titlecateg']);
+                        <p>
+                            <?php
+                            // si on a une
+                            if (!is_null($item['idcategorie'])) {
 
-                        ?>
-                        <p><a href="?idcateg=">RUBRIQUES</a></p>
-                        <?php
 
-                        ?>
-                        <p><?=$item['thetext']?> ... </p>
-                        <p>Ecrit par <?=$item['thename']?> | Profil: <a href="?idauthor=<?=$item['iduser']?>"><?=$item['thelogin']?></a></p>
+                                $idcateg = explode(",", $item['idcategorie']);
+                                $titlecateg = explode("|||", $item['titlecateg']);
+                                foreach ($titlecateg as $key => $value) {
+                                    ?>
+                                    <a href="?idcateg=<?= $idcateg[$key] ?>"><?= $value ?></a>
+                                    <?php
+                                }
+                            }
+
+                            ?>
+                        </p>
+                        <p><?= $item['thetext'] ?> ...  <a href="?idnouvelle=<?=$item['idarticle']?>">Lire la suite</a> </p>
+                        <p>Ecrit par <?= $item['thename'] ?> | Profil: <a
+                                    href="?idauthor=<?= $item['iduser'] ?>"><?= $item['thelogin'] ?></a></p>
                         <p>Date : <?= $item['thedate'] ?> </p>
-
+<hr>
 
                     </div>
                     <?php
