@@ -27,6 +27,7 @@ $requete = mysqli_query($mysqli,$sql_de_fou);
 
 $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +38,47 @@ $result = mysqli_fetch_all($requete,MYSQLI_ASSOC);
 <body>
 <h1>Jointures de fou avec group_concat et group by (exemple, à ne pas faire!)</h1>
 <h2>On part de categorie pour prendre tous les articles et toutes les tables de la db, en restant cohérent!</h2>
+<div id="content">
+    <?php
+    // tant qu'on a des catégories
+    foreach($result as $item) {
+
+        // on divise en élément de tableau les données venant d'un GROUP_CONCAT
+        $idarticle = explode("," ,$item['idarticle']);
+        $articleTitle = explode("|||" ,$item['articleTitle']);
+        $iduser = explode("," ,$item['iduser']);
+        $thelogin = explode("|||" ,$item['thelogin']);
+        $idpermission = explode("," ,$item['idpermission']);
+        $thename = explode("|||" ,$item['thenamePerm']);
+        $theurl = explode("|||" ,$item['theurl']);
+
+
+        ?>
+        <hr><h3>ID: <?= $item['idcategorie'] ?> | <?= $item['thetitle'] ?></h3><hr>
+        <?php
+        //var_dump($idarticle);
+        if(empty($idarticle[0])){
+
+            ?>
+            <h4>Pas d'article dans cette catégorie</h4>
+            <?php
+        }else{
+
+        foreach($idarticle as $k => $value) {
+
+            ?>
+            <h4>ID: <?= $value ?> TITRE: <?= $articleTitle[$k] ?> </h4>
+            <h5>ID: <?= $iduser[$k] ?> LOGIN: <?= $thelogin[$k] ?> <img src='<?= $theurl[$k] ?>'
+                                                                        alt='<?= $thelogin[$k] ?>' width="50px"
+                                                                        height="50px"></h5>
+            <h5>ID: <?= $idpermission[$k] ?> PERMISSION: <?= $thename[$k] ?></h5>
+            <hr>
+            <?php
+        }
+        }
+    }
+    ?>
+</div>
 <pre>
 <?php
 var_dump($result);
